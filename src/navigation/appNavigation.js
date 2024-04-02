@@ -8,12 +8,18 @@ import NewPassScreen from "../screens/newPassScreen";
 import LoadScreen from "../screens/loadScreen";
 import RegisterOTPScreen from "../screens/registerOTPScreen";
 import ScanQRScreen from "../screens/scanQRScreen";
+import HomeScreen from "../screens/homeScreen";
+import ProfileScreen from "../screens/profileScreen";
+import NavMenuComponent from "../components/navMenuComponent";
+import InforScreen from "../screens/inforScreen";
+import ChangePassScreen from "../screens/changePassScreen";
 
 const AppNavigation = () => {
     const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
+                <Stack.Screen name="TabBar" component={NavMenuComponent}/>
                 <Stack.Screen name = "Login" component={LoginScreen}/>
                 <Stack.Screen name = "Register" component={RegisterScreen}/>
                 <Stack.Screen name = "ForgotPass" component={ForgotPassScreen}/>
@@ -22,6 +28,10 @@ const AppNavigation = () => {
                 <Stack.Screen name = "NewPass" component={NewPassScreen}/>
                 <Stack.Screen name = "Load" component={LoadScreen}/>
                 <Stack.Screen name = "ScanQR" component={ScanQRScreen}/>
+                <Stack.Screen name = "Home" component={HomeScreen}/>
+                <Stack.Screen name = "ProfileScreen" component={ProfileScreen}/>
+                <Stack.Screen name = "InforScreen" component={InforScreen}/>
+                <Stack.Screen name = "ChangePassScreen" component={ChangePassScreen}/>
                 
             </Stack.Navigator>
         </NavigationContainer>

@@ -74,7 +74,13 @@ const LoginScreen = ({navigation}) => {
                         alignItems: 'center'
                     }}
                 >
-                    <TouchableOpacityComponents content={'Đăng Nhập'}/>
+                    <TouchableOpacityComponents content={'Đăng Nhập'} onPress={ () => {
+                        navigation.navigate('TabBar')
+                        navigation.reset({
+                            index: 0,
+                            routes: [{ name: 'TabBar' }]
+                          })
+                    }}/>
                 </View>
                 <View
                     style = {{

@@ -2,7 +2,7 @@ import { Image, ImageBackground, View } from "react-native"
 import { IMAGES } from "../assets/images/images"
 import { ICONS } from "../assets/icons/icons"
 
-const LoadScreen = ({navigation}) => {
+const LoadScreen = () => {
     return(
         <ImageBackground source={IMAGES.background1} resizeMode="stretch" 
             style={{
