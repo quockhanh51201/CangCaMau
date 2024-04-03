@@ -6,7 +6,7 @@ import { useState } from "react"
 import TouchableOpacityComponents from "../components/touchableOpacityComponents"
 
 
-const TextInputCusTom = ({lable, text, setText, keyboardType}) => {
+const TextInputCusTom = ({lable, text, setText, keyboardType, right}) => {
     return(
         <View
             style ={{
@@ -22,25 +22,61 @@ const TextInputCusTom = ({lable, text, setText, keyboardType}) => {
                 fontSize: 12,
                 fontFamily: 'Roboto-Regular',
             }}>{text}{lable}</Text>
-            <TextInput
-                placeholder="--"
-                placeholderTextColor={'#333'}
-                keyboardType= {keyboardType}
-                style ={{
-                    color: '#333',
-                    fontFamily: 'Roboto-Regular',
-                    fontSize: 16
-                }}
-                onChangeText={setText}
-                value = {text}
-                editable = {false}
-            >
-            </TextInput>
+            <View style = {{
+                flexDirection: "row",
+                justifyContent: 'space-between'
+            }}>
+                <TextInput
+                    placeholder="--"
+                    placeholderTextColor={'#333'}
+                    keyboardType= {keyboardType}
+                    style ={{
+                        color: '#333',
+                        fontFamily: 'Roboto-Regular',
+                        fontSize: 16
+                    }}
+                    onChangeText={setText}
+                    value = {text}
+                >
+                </TextInput>
+                <View>
+                    {
+                        right == 'Clear' ? <ClearComponent setText={setText}/> : ''
+                    }
+                    {
+                        right == 'Drop' ? <DropComponent setText={setText}/> : ''
+                    }
+                </View>
+            </View>
         </View>
     )
 }
-
-const InforScreen = ({navigation}) => {
+const ClearComponent = ({setText}) => {
+    const Clear = () => (setText(''))
+    return (
+        <TouchableOpacity onPress={Clear}>
+            <View style = {{
+                padding: 1.6,
+                marginRight: 11.64
+            }}>
+                <Image source={ICONS.Clear} resizeMode='contain' style = {{width: 6.36, height: 6.36}}/>
+            </View>
+        </TouchableOpacity>
+    )
+}
+const DropComponent = ({setText}) => {
+    return (
+        <TouchableOpacity>
+            <View style = {{
+                padding: 1.6,
+                marginRight: 11.64
+            }}>
+                <Image source={ICONS.Drop} resizeMode='contain' style = {{width: 6.36, height: 6.36}}/>
+            </View>
+        </TouchableOpacity>
+    )
+}
+const UpdateInforScreen = ({navigation}) => {
 
     const [name, setName] = useState('Phan Quốc Khánh')
     const [cmnd, setCmnd] = useState('')
@@ -109,15 +145,15 @@ const InforScreen = ({navigation}) => {
                             width: '100%'
                         }}
                     >
-                        <TextInputCusTom text={name} setText={setName}/>
+                        <TextInputCusTom text={name} setText={setName} right={'Clear'}/>
                         <TextInputCusTom lable={'CMND/CCCD'} setText={setCmnd}/>
-                        <TextInputCusTom lable={'Ngày sinh'} setText={setBirthDay}/>
-                        <TextInputCusTom lable={'Địa chỉ'} setText={setAddress}/>
-                        <TextInputCusTom lable={'Phường/Xã'} setText={setWard}/>
-                        <TextInputCusTom lable={'Quận/Huyện'} setText={setDistric}/>
-                        <TextInputCusTom lable={'Tỉnh/Thành phố'} setText={setCity}/>
+                        <TextInputCusTom lable={'Ngày sinh'} setText={setBirthDay}right={'Clear'}/>
+                        <TextInputCusTom lable={'Địa chỉ'} setText={setAddress}right={'Clear'}/>
+                        <TextInputCusTom lable={'Phường/Xã'} setText={setWard}right={'Drop'}/>
+                        <TextInputCusTom lable={'Quận/Huyện'} setText={setDistric}right={'Drop'}/>
+                        <TextInputCusTom lable={'Tỉnh/Thành phố'} setText={setCity}right={'Drop'}/>
                         <TextInputCusTom lable={'Số điện thoại'} setText={setPhone}/>
-                        <TextInputCusTom lable={'Loại thuyền viên'} setText={setType}/>
+                        <TextInputCusTom lable={'Loại thuyền viên'} setText={setType}right={'Drop'}/>
                     </View>
                 </View>
                 <View
@@ -138,8 +174,8 @@ const InforScreen = ({navigation}) => {
                             width: '100%'
                         }}
                     >
-                        <TextInputCusTom lable={'Giấy chứng nhận chuyên môn'} setText={setCatificate}/>
-                        <TextInputCusTom lable={'Cơ quan cấp'} setText={setCatificateBy}/>
+                        <TextInputCusTom lable={'Giấy chứng nhận chuyên môn'} setText={setCatificate} right={'Clear'}/>
+                        <TextInputCusTom lable={'Cơ quan cấp'} setText={setCatificateBy}  right={'Clear'}/>
                         <TextInputCusTom lable={'Ngày cấp'} setText={setdate}/>
                     </View>
                 </View>
@@ -147,32 +183,10 @@ const InforScreen = ({navigation}) => {
                     style = {{
                         height: 95,
                         flexDirection: 'row',
-                        justifyContent: 'space-around'
+                        justifyContent: 'center'
                     }}
                 >
                     <TouchableOpacity>
-                        <View style ={{
-                            width: 173,
-                            height: 38,
-                            borderRadius: 6,
-                            backgroundColor: '#F62825',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <Text style = {
-                                {
-                                    fontFamily: 'Roboto-Bold',
-                                    fontSize: 14,
-                                    color: '#FFF'
-                                }
-                            }>
-                                Xóa tài khoản
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('UpdateInforScreen')}
-                    >
                         <View style = {{
                             width: 173,
                             height: 38,
@@ -188,7 +202,7 @@ const InforScreen = ({navigation}) => {
                                     color: '#FFF'
                                 }
                             }>
-                                Cập nhật
+                                Xác nhận
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -199,4 +213,4 @@ const InforScreen = ({navigation}) => {
     )  
 }
 
-export default InforScreen
+export default UpdateInforScreen

@@ -19,6 +19,8 @@ export const ICONS = {
     Doc: require('../icons/Doc.png'),
     Setting: require('../icons/Setting.png'),
     Lock: require('../icons/Lock.png'),
+    Clear: require('../icons/Clear.png'),
+    Drop: require('../icons/Drop.png'),
 
 
 }
