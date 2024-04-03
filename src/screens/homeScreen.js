@@ -9,27 +9,37 @@ const HomeScreen = ({navigation}) => {
     const [itemHome, setItemHome] = useState([
         {
             label: 'Xuất/Nhập bến',
-            image: ICONS.NhapBen
+            image: ICONS.NhapBen,
+            screen: 'InOutScreen'
         },
         {
             label: 'Tàu cá',
-            image: ICONS.XuatBen
+            image: ICONS.XuatBen,
+            screen: 'InOutScreen'
+
         },
         {
             label: 'Thuyền viên',
-            image: ICONS.ThuyenVien
+            image: ICONS.ThuyenVien,
+            screen: 'InOutScreen'
+
         },
         {
             label: 'Lịch sử vi phạm',
-            image: ICONS.LichSuVP
+            image: ICONS.LichSuVP,
+            screen: 'InOutScreen'
+
         },
         {
             label: 'Lịch sử tai nạn',
-            image: ICONS.LichSuTN
+            image: ICONS.LichSuTN,
+            screen: 'InOutScreen'
+
         },
         {
             label: 'Cảnh báo',
-            image: ICONS.CanhBao
+            image: ICONS.CanhBao,
+            screen: 'InOutScreen'
         },                        
     ])
     return (

@@ -12,11 +12,9 @@ const ItemHomeComponent = ({navigation, items}) => {
                 }
                 return(
                     <TouchableOpacity
-                            // onPress={() => {
-                            //     navigation.navigate('Detail',{
-                            //         item: item
-                            //     })
-                            // }}
+                            onPress={() => {
+                                navigation.navigate(item.screen)
+                            }}
                         >
                             <View
                                 style={{
@@ -55,10 +53,3 @@ const ItemHomeComponent = ({navigation, items}) => {
 }
 
 export default ItemHomeComponent
-
-
-// icon: ICONS.Warning,
-// lable: 'Cảnh báo',
-// content: 'Cảnh báo thời hạn hết hạn đăng kiểm của tàu/thuyền hết hạn ngày 10 tháng 10 2022',
-// time: '02/02/2022',
-// status: 'new'
