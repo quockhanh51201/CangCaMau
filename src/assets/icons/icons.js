@@ -21,6 +21,11 @@ export const ICONS = {
     Lock: require('../icons/Lock.png'),
     Clear: require('../icons/Clear.png'),
     Drop: require('../icons/Drop.png'),
+    Filter: require('../icons/filter.png'),
+    Calendar: require('../icons/Calendar.png'),
+    Exit: require('../icons/Exit.png'),
+    Radio1: require('../icons/Radio1.png'),
+    Radio2: require('../icons/Radio2.png'),
 
-
+    
 }

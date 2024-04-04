@@ -15,6 +15,7 @@ import InforScreen from "../screens/inforScreen";
 import ChangePassScreen from "../screens/changePassScreen";
 import UpdateInforScreen from "../screens/updateInforScreen";
 import InOutScreen from "../screens/inOutScreen";
+import FilterScreen from "../screens/FilterSceen";
 
 const AppNavigation = () => {
     const Stack = createNativeStackNavigator();
@@ -36,6 +37,7 @@ const AppNavigation = () => {
                 <Stack.Screen name = "ChangePassScreen" component={ChangePassScreen}/>
                 <Stack.Screen name = "UpdateInforScreen" component={UpdateInforScreen}/>
                 <Stack.Screen name = "InOutScreen" component={InOutScreen}/>
+                <Stack.Screen name = "FilterScreen" component={FilterScreen}/>
 
             </Stack.Navigator>
         </NavigationContainer>

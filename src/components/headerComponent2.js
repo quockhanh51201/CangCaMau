@@ -3,7 +3,7 @@ import { ICONS } from "../assets/icons/icons"
 import { useState } from "react"
 
 
-const HeaderComponent2 = ({label ,navigation, right}) => {
+const HeaderComponent2 = ({label ,navigation, right, setFilter}) => {
     const [search,setSearch] = useState('open')
     return(
         <View style={{flexDirection: 'row', backgroundColor: '#459AC9', alignItems: 'center', justifyContent: 'center',paddingLeft: 7,paddingBottom: 17}}>
@@ -73,26 +73,28 @@ const HeaderComponent2 = ({label ,navigation, right}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                {
-                    search == 'open' ?
-                    <TouchableOpacity
-                        onPress={() => setSearch('close')}
-                    >
-                        <Image resizeMode="contain" source={ICONS.Search} style = {{ width:18, height: 18, tintColor: '#FFF', marginLeft: 0.2, marginRight: 0.2}}/>
+            {right === 'search' && (
+                <>
+                {search === 'open' ? (
+                    <TouchableOpacity onPress={() => {
+                        setSearch('close')
+                        setFilter(true)
+                    }}>
+                        <Image resizeMode="contain" source={ICONS.Search} style={{ width: 18, height: 18, tintColor: '#FFF', marginLeft: 0.2, marginRight: 0.2 }} />
                     </TouchableOpacity>
-                    : ''
-                }
-                {
-                    search == 'close'  ? 
-                    <TouchableOpacity
-                        onPress={() => setSearch('open')}
-                    >
-                        <Text style = {{color: '#FFF', fontFamily: 'Roboto-Regular', fontSize: 14, paddingBottom: 5}}>
+                ) : (
+                    <TouchableOpacity onPress={() => {
+                        setSearch('open')
+                        setFilter(false)
+                    }
+                    }>
+                        <Text style={{ color: '#FFF', fontFamily: 'Roboto-Regular', fontSize: 14, paddingBottom: 5 }}>
                             Đóng
                         </Text>
                     </TouchableOpacity>
-                    : ''
-                }
+                )}
+                </>
+            )}
             </View>
         </View>
     )
