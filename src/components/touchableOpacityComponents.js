@@ -3,11 +3,11 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-nativ
 const TouchableOpacityComponents = ({content, onPress}) => {
 
     return (
-        <View style = {styles.Touch}>
-            <TouchableOpacity onPress={onPress}>
-                <Text style ={styles.Text}>{content}</Text>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={onPress}>
+            <View style = {styles.Touch}>
+                    <Text style ={styles.Text}>{content}</Text>
+            </View>
+        </TouchableOpacity>
     )
 
 }

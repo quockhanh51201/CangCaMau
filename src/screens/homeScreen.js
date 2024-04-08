@@ -1,4 +1,4 @@
-import { Image, ScrollView, Text, TextInput, View } from "react-native"
+import { Image, ScrollView, StatusBar, Text, TextInput, View } from "react-native"
 import { ICONS } from "../assets/icons/icons"
 import { useEffect, useLayoutEffect, useState } from "react"
 import ItemHomeComponent from "../components/itemHomeComponent"
@@ -15,36 +15,48 @@ const HomeScreen = ({navigation}) => {
         {
             label: 'Tàu cá',
             image: ICONS.XuatBen,
-            screen: 'InOutScreen'
+            screen: ''
 
         },
         {
             label: 'Thuyền viên',
             image: ICONS.ThuyenVien,
-            screen: 'InOutScreen'
+            screen: ''
 
         },
         {
             label: 'Lịch sử vi phạm',
             image: ICONS.LichSuVP,
-            screen: 'InOutScreen'
+            screen: ''
 
         },
         {
             label: 'Lịch sử tai nạn',
             image: ICONS.LichSuTN,
-            screen: 'InOutScreen'
+            screen: ''
 
         },
         {
             label: 'Cảnh báo',
             image: ICONS.CanhBao,
-            screen: 'InOutScreen'
-        },                        
+            screen: ''
+        },   
+        // {
+        //     label: 'Trong bờ ',
+        //     image: ICONS.CanhBao,
+        //     screen: 'InScreen'
+        // }, 
+        // {
+        //     label: 'Ngoài biển',
+        //     image: ICONS.CanhBao,
+        //     screen: 'OutScreen'
+        // },                      
     ])
     return (
-       <View style ={{flex: 1}}>
-            <View 
+       <View style ={{flex: 1, paddingBottom: 100}}>
+        <StatusBar backgroundColor={'#F5F5F5'}/>
+        <ScrollView>
+        <View 
             style={{
                 flexDirection: 'row',
                 height:46,
@@ -122,6 +134,7 @@ const HomeScreen = ({navigation}) => {
             <View style = {{alignItems: 'center'}}>
                 <ItemHomeComponent navigation={navigation} items={itemHome}/>
             </View>
+        </ScrollView>
         </View>
     )
 }

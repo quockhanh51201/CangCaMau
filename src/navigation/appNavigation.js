@@ -16,6 +16,24 @@ import ChangePassScreen from "../screens/changePassScreen";
 import UpdateInforScreen from "../screens/updateInforScreen";
 import InOutScreen from "../screens/inOutScreen";
 import FilterScreen from "../screens/FilterSceen";
+import InScreen from "../screens/inScreen";
+import RequestCheckOutScreen from "../screens/requestCheckOutScreen";
+import OutScreen from "../screens/outScreen";
+import CheckOutNocationScreen from "../screens/checkOutNocationScreen";
+import MinutesCheckOutScreen from "../screens/minutesCheckOutScreen";
+import RequestCheckInScreen from "../screens/requestCheckInScreen";
+import WaitConfirmRequestCheckInScreen from "../screens/waitConfirmRequestCheckInScreen";
+import WaitConfirmRequestCheckOutScreen from "../screens/waitConfirmRequestCheckOutScreen";
+import AcceptCheckIn from "../screens/acceptCheckIn";
+import AcceptCheckOut from "../screens/acceptCheckOut";
+import RefuseCheckIn from "../screens/refuseCheckInScreen";
+import RefuseCheckOut from "../screens/refuseCheckOutScreen";
+import WaitConfirmCheckOut from "../screens/waitConfirmCheckOut";
+import WaitConfirmCheckIn from "../screens/waitConfirmCheckIn";
+import NoCheckInScreen from "../screens/noCheckInScreen";
+import NoCheckOutScreen from "../screens/noCheckOutScreen";
+import RefuseCheckInScreen from "../screens/refuseCheckInScreen";
+import RefuseCheckOutScreen from "../screens/refuseCheckOutScreen";
 
 const AppNavigation = () => {
     const Stack = createNativeStackNavigator();
@@ -38,6 +56,26 @@ const AppNavigation = () => {
                 <Stack.Screen name = "UpdateInforScreen" component={UpdateInforScreen}/>
                 <Stack.Screen name = "InOutScreen" component={InOutScreen}/>
                 <Stack.Screen name = "FilterScreen" component={FilterScreen}/>
+                <Stack.Screen name = "InScreen" component={InScreen}/>
+                <Stack.Screen name = "RequestCheckOutScreen" component={RequestCheckOutScreen}/>
+                <Stack.Screen name = "OutScreen" component={OutScreen}/>
+                <Stack.Screen name = "CheckOutNocationScreen" component={CheckOutNocationScreen}/>
+                <Stack.Screen name = "MinutesCheckOutScreen" component={MinutesCheckOutScreen}/>
+                <Stack.Screen name = "RequestCheckInScreen" component={RequestCheckInScreen}/>
+                <Stack.Screen name = "WaitConfirmRequestCheckInScreen" component={WaitConfirmRequestCheckInScreen}/>
+                <Stack.Screen name = "WaitConfirmRequestCheckOutScreen" component={WaitConfirmRequestCheckOutScreen}/>
+                <Stack.Screen name = "AcceptCheckIn" component={AcceptCheckIn}/>
+                <Stack.Screen name = "AcceptCheckOut" component={AcceptCheckOut}/>
+                <Stack.Screen name = "RefuseCheckInScreen" component={RefuseCheckInScreen}/>
+                <Stack.Screen name = "RefuseCheckOutScreen" component={RefuseCheckOutScreen}/>
+                <Stack.Screen name = "WaitConfirmCheckOut" component={WaitConfirmCheckOut}/>
+                <Stack.Screen name = "WaitConfirmCheckIn" component={WaitConfirmCheckIn}/>
+                <Stack.Screen name = "NoCheckInScreen" component={NoCheckInScreen}/>
+                <Stack.Screen name = "NoCheckOutScreen" component={NoCheckOutScreen}/>
+
+
+
+            
 
             </Stack.Navigator>
         </NavigationContainer>

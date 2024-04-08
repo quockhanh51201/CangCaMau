@@ -26,6 +26,14 @@ export const ICONS = {
     Exit: require('../icons/Exit.png'),
     Radio1: require('../icons/Radio1.png'),
     Radio2: require('../icons/Radio2.png'),
+    Tau: require('../icons/tau.png'),
+    Canh: require('../icons/Canh.png'),
+    Delete: require('../icons/Delete.png'),
+    Doc2: require('../icons/Doc2.png'),
+    I: require('../icons/i.png'),
+
+
+
 
     
 }

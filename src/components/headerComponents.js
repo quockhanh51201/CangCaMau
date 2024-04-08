@@ -15,6 +15,7 @@ const HeaderComponents = ({label ,navigation, colorIcon}) => {
                         paddingLeft: 5,
                         marginLeft: 12,
                         marginTop: 12,
+                        marginBottom: 12,
                         width: 20,
                         height: 25,
                         justifyContent: 'center',

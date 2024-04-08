@@ -1,8 +1,11 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { Alert, Image, Modal, ScrollView, Text, TouchableOpacity, View } from "react-native"
+import {Calendar, LocaleConfig} from 'react-native-calendars';
 import HeaderComponent3 from "../components/headerComponent3"
 import RadioComponent from "../components/radioComponent"
-import { useState } from "react"
+import { cloneElement, useState } from "react"
 import { ICONS } from "../assets/icons/icons"
+import moment from 'moment'
+import TouchableOpacityComponent2 from "../components/touchableOpacityComponent2";
 
 const FilterScreen = ({navigation}) => {
     const [selectedApprove,setSelectedApprove] = useState('')
@@ -19,6 +22,66 @@ const FilterScreen = ({navigation}) => {
     const handleTimeRadioChange = (label) => {
         setSelectedTime(label);
     };
+
+    const [modalVisible, setModalVisible] = useState(false);
+    const [since, setSince] = useState('')
+    const [toDate, setToDate] = useState('')
+    const [isModalToday, setIsModalToday] = useState(false)
+
+    const CalendarCustom = () => {
+        return (
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                setModalVisible(!modalVisible);
+                }}>
+                    <View style = {{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: '#005F94',
+                        flex: 1,
+                        marginTop: 200,
+                        marginBottom: 220,
+                        borderRadius: 20
+                    }}>
+                        <Calendar
+                            style = {{
+                                width: 400,
+                                height: 350,
+                                borderRadius: 20
+                            }}
+                            onDayPress={day => {
+                                const selectedDate = moment(day.dateString).format('DD/MM/YYYY');
+                                if (isModalToday) {
+                                    setToDate(selectedDate);
+                                } else {
+                                    setSince(selectedDate);
+                                }
+                                setIsModalToday(false); 
+                            }}
+                        />
+
+                        <TouchableOpacity
+                            onPress={() => setModalVisible(!modalVisible)}
+                            style = {{marginTop: 10}}
+                        >
+                            <View style = {{
+                                backgroundColor: '#459AC9',
+                                padding: 12,
+                                width: 100,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: 20
+                            }}>
+                                <Text style ={{fontFamily: 'Inter_Regular', fontSize: 12, color: '#FFF'}}>Đóng</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+            </Modal>
+        )
+    }
     return (
         <View style = {{
             flex: 1
@@ -160,10 +223,14 @@ const FilterScreen = ({navigation}) => {
 
                                 }}
                             >
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => {
+                                    setIsModalToday(true)
+                                    setModalVisible(true)
+                                }}>
+                                    <CalendarCustom/>
                                     <Image source={ICONS.Calendar} resizeMode="contain" style = {{width: 14, height: 14}}/>
                                 </TouchableOpacity>
-                                <Text style ={{marginLeft: 2}}>Từ ngày</Text>
+                                <Text style ={{marginLeft: 2}}>Từ ngày: {since}</Text>
                             </View>
                             <View
                                 style = {{
@@ -186,14 +253,22 @@ const FilterScreen = ({navigation}) => {
                                     alignItems: 'center'
                                 }}
                             >
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => {
+                                    setIsModalToday(true)
+                                    setModalVisible(true)
+                                }}
+                                >
+                                    <CalendarCustom/>
                                     <Image source={ICONS.Calendar} resizeMode="contain" style = {{width: 14, height: 14}}/>
                                 </TouchableOpacity>
-                                <Text style ={{marginLeft: 2}}>Đến ngày</Text>
+                                <Text style ={{marginLeft: 2}}>Đến ngày: {toDate}</Text>
                             </View>
                         </View>
                     </View>
-
+                    <View style = {{flexDirection: 'row', marginTop: 29, marginLeft:12, marginRight: 12, marginBottom: 27, justifyContent: 'space-evenly'}}>
+                        <TouchableOpacityComponent2 content={'Đặt lại'} color={'#828282'} backgroundColor={'#FFF'} />
+                        <TouchableOpacityComponent2 content={'Áp dụng'} color={'#FFF'} backgroundColor={'#005F94'}/>
+                    </View>
                 </View>
             </ScrollView>
         </View>

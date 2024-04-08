@@ -236,8 +236,58 @@ const List = ({data, navigation}) => {
                 paddingBottom: 100
             }}
             renderItem={({item, index}) => {
+                const onPress = () => {
+                    if (item.status === 'Trong bờ')
+                    {
+                        navigation.navigate('InScreen')
+                    }
+                    if (item.status === 'Ngoài biển')
+                    {
+                        navigation.navigate('OutScreen')
+                    }
+                    if (item.status === 'Nhập bến' && item.requestStatus === 'Chờ tiếp nhận yêu cầu')
+                    {
+                        navigation.navigate('WaitConfirmRequestCheckInScreen')
+                    }
+                    if (item.status === 'Xuất bến' && item.requestStatus === 'Chờ tiếp nhận yêu cầu')
+                    {
+                        navigation.navigate('WaitConfirmRequestCheckOutScreen')
+                    }
+                    if (item.status === 'Nhập bến' && item.requestStatus === 'Được tiếp nhận')
+                    {
+                        navigation.navigate('AcceptCheckIn')
+                    }
+                    if (item.status === 'Xuất bến' && item.requestStatus === 'Được tiếp nhận')
+                    {
+                        navigation.navigate('AcceptCheckOut')
+                    }
+                    if (item.status === 'Nhập bến' && item.requestStatus === 'Từ chối')
+                    {
+                        navigation.navigate('RefuseCheckInScreen')
+                    }
+                    if (item.status === 'Xuất bến' && item.requestStatus === 'Từ chối')
+                    {
+                        navigation.navigate('RefuseCheckOutScreen')
+                    }
+                    if (item.status === 'Nhập bến' && item.requestStatus === 'Chờ xác nhận nhập bến')
+                    {
+                        navigation.navigate('WaitConfirmCheckIn')
+                    }
+                    if (item.status === 'Xuất bến' && item.requestStatus === 'Chờ xác nhận xuất bến')
+                    {
+                        navigation.navigate('WaitConfirmCheckOut')
+                    }
+                    if (item.status === 'Nhập bến' && item.requestStatus === 'Không được nhập bến')
+                    {
+                        navigation.navigate('NoCheckInScreen')
+                    }
+                    if (item.status === 'Xuất bến' && item.requestStatus === 'Không được xuất bến')
+                    {
+                        navigation.navigate('NoCheckOutScreen')
+                    }
+                }
                 return (
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={onPress}>
                         <View style = {{
                             paddingLeft: 12,
                             paddingTop: 15,
@@ -402,6 +452,14 @@ const InOutScreen = ({navigation}) => {
             manager: 'Phan Văn Tiến, CMND: , SDT: 0984042497, Địa chỉ: k1, Xã Long Đức, Thành phố Trà Vinh, Tỉnh Trà Vinh'
         },
         { 
+            title: '06020 - Thái học 3',
+            status: 'Xuất bến',
+            requestStatus: 'Từ chối',
+            timeOut: '',
+            timeIn: '',
+            manager: 'Phan Văn Tiến, CMND: , SDT: 0984042497, Địa chỉ: k1, Xã Long Đức, Thành phố Trà Vinh, Tỉnh Trà Vinh'
+        },
+        { 
             title: '06020 - Thái học 4',
             status: 'Xuất bến',
             requestStatus: 'Không được xuất bến',
@@ -413,6 +471,14 @@ const InOutScreen = ({navigation}) => {
             title: '06020 - Thái học 5',
             status: 'Xuất bến',
             requestStatus: 'Chờ xác nhận xuất bến',
+            timeOut: '',
+            timeIn: '',
+            manager: 'Phan Văn Tiến, CMND: , SDT: 0984042497, Địa chỉ: k1, Xã Long Đức, Thành phố Trà Vinh, Tỉnh Trà Vinh'
+        },
+        { 
+            title: '06020 - Thái học 5',
+            status: 'Xuất bến',
+            requestStatus: 'Được tiếp nhận',
             timeOut: '',
             timeIn: '',
             manager: 'Phan Văn Tiến, CMND: , SDT: 0984042497, Địa chỉ: k1, Xã Long Đức, Thành phố Trà Vinh, Tỉnh Trà Vinh'
