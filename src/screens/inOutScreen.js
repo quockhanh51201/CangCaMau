@@ -271,11 +271,11 @@ const List = ({data, navigation}) => {
                     }
                     if (item.status === 'Nhập bến' && item.requestStatus === 'Chờ xác nhận nhập bến')
                     {
-                        navigation.navigate('WaitConfirmCheckIn')
+                        navigation.navigate('WaitConfirmCheckInScreen')
                     }
                     if (item.status === 'Xuất bến' && item.requestStatus === 'Chờ xác nhận xuất bến')
                     {
-                        navigation.navigate('WaitConfirmCheckOut')
+                        navigation.navigate('WaitConfirmCheckOutScreen')
                     }
                     if (item.status === 'Nhập bến' && item.requestStatus === 'Không được nhập bến')
                     {
@@ -284,6 +284,14 @@ const List = ({data, navigation}) => {
                     if (item.status === 'Xuất bến' && item.requestStatus === 'Không được xuất bến')
                     {
                         navigation.navigate('NoCheckOutScreen')
+                    }
+                    if (item.status === 'Nhập bến' && item.location === 'Trong bờ')
+                    {
+                        navigation.navigate('CompleteCheckInScreen')
+                    }
+                    if (item.status === 'Xuất bến' && item.location === 'Ngoài biển')
+                    {
+                        navigation.navigate('CompleteCheckOutScreen')
                     }
                 }
                 return (
@@ -446,6 +454,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 3',
             status: 'Xuất bến',
+            location: '',
             requestStatus: 'Chờ tiếp nhận yêu cầu',
             timeOut: '',
             timeIn: '',
@@ -454,6 +463,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 3',
             status: 'Xuất bến',
+            location: '',
             requestStatus: 'Từ chối',
             timeOut: '',
             timeIn: '',
@@ -462,6 +472,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 4',
             status: 'Xuất bến',
+            location: '',
             requestStatus: 'Không được xuất bến',
             timeOut: '',
             timeIn: '',
@@ -470,6 +481,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 5',
             status: 'Xuất bến',
+            location: '',
             requestStatus: 'Chờ xác nhận xuất bến',
             timeOut: '',
             timeIn: '',
@@ -478,6 +490,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 5',
             status: 'Xuất bến',
+            location: '',
             requestStatus: 'Được tiếp nhận',
             timeOut: '',
             timeIn: '',
@@ -486,6 +499,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 2',
             status: 'Trong bờ',
+            location: '',
             requestStatus: '',
             timeOut: '10:10 10/10/2010',
             timeIn: '10:10 10/10/2020',
@@ -494,6 +508,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 1',
             status: 'Nhập bến',
+            location: '',
             requestStatus: 'Chờ tiếp nhận yêu cầu',
             timeOut: '10:10 10/10/2010',
             timeIn: '',
@@ -502,6 +517,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 6',
             status: 'Nhập bến',
+            location: '',
             requestStatus: 'Không được nhập bến',
             timeOut: '10:10 10/10/2010',
             timeIn: '',
@@ -509,6 +525,7 @@ const InOutScreen = ({navigation}) => {
         },
         { 
             title: '06020 - Thái học 7',
+            location: '',
             status: 'Nhập bến',
             requestStatus: 'Chờ xác nhận nhập bến',
             timeOut: '10:10 10/10/2010',
@@ -518,6 +535,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 8',
             status: 'Nhập bến',
+            location: '',
             requestStatus: 'Được tiếp nhận',
             timeOut: '10:10 10/10/2010',
             timeIn: '',
@@ -526,6 +544,7 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học 9',
             status: 'Nhập bến',
+            location: '',
             requestStatus: 'Từ chối',
             timeOut: '10:10 10/10/2010',
             timeIn: '',
@@ -534,6 +553,25 @@ const InOutScreen = ({navigation}) => {
         { 
             title: '06020 - Thái học',
             status: 'Ngoài biển',
+            location: '',
+            requestStatus: '',
+            timeOut: '10:10 10/10/2010',
+            timeIn: '',
+            manager: 'Phan Văn Tiến, CMND: , SDT: 0984042497, Địa chỉ: k1, Xã Long Đức, Thành phố Trà Vinh, Tỉnh Trà Vinh'
+        },
+        { 
+            title: '06020 - Thái học',
+            status: 'Xuất bến',
+            location: 'Ngoài biển',
+            requestStatus: '',
+            timeOut: '10:10 10/10/2010',
+            timeIn: '',
+            manager: 'Phan Văn Tiến, CMND: , SDT: 0984042497, Địa chỉ: k1, Xã Long Đức, Thành phố Trà Vinh, Tỉnh Trà Vinh'
+        },
+        { 
+            title: '06020 - Thái học',
+            status: 'Nhập bến',
+            location: 'Trong bờ',
             requestStatus: '',
             timeOut: '10:10 10/10/2010',
             timeIn: '',

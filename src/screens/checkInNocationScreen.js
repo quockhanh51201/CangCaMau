@@ -1,8 +1,9 @@
-import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { FlatList, Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native"
 import HeaderComponents from "../components/headerComponents"
 import { ICONS } from "../assets/icons/icons"
 import TouchableOpacityComponent3 from "../components/touchableOpacityComponent3"
 import CheckBoxComponent2 from "../components/checkBoxComponent2"
+import { useState } from "react"
 
 const Title = ({title}) => {
     return (
@@ -10,6 +11,55 @@ const Title = ({title}) => {
             <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 16}}>
                 {title}
             </Text>
+        </View>
+    )
+}
+
+
+
+const DataTable = ({data}) => {
+    // Khởi tạo giá trị tổng ban đầu là 0
+    const totalActualNumber = data.slice(1).reduce((accumulator, currentItem) => {
+    // Chuyển đổi giá trị actualNumber từ chuỗi thành số và cộng vào tổng
+        return accumulator + parseInt(currentItem.actualNumber);
+    }, 0);
+
+    // Khởi tạo giá trị tổng ban đầu là 0
+    const totalNumberOfReports = data.slice(1).reduce((accumulator, currentItem) => {
+    // Chuyển đổi giá trị actualNumber từ chuỗi thành số và cộng vào tổng
+            return accumulator + parseInt(currentItem.numberOfReports);
+    }, 0);
+    return (
+        <View>
+            <FlatList
+            data={data}
+            renderItem={({item, index}) => {
+                return (
+                    <View>
+                        {
+                            index === 0 ? (
+                                <View style ={{backgroundColor: '#459AC9', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: 10, paddingBottom: 10, paddingLeft: 12, paddingRight: 12, borderTopLeftRadius: 6, borderTopRightRadius: 6}}>
+                                    <Text style = {{ color: '#FFF', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 2}}>{item.name}</Text>
+                                    <Text style = {{ color: '#FFF', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{item.numberOfReports}</Text>
+                                    <Text style = {{ color: '#FFF', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{item.actualNumber}</Text>
+                                </View>
+                            ) : (
+                                <View style ={{backgroundColor: '#FFF', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: 10, paddingBottom: 10, paddingLeft: 12, paddingRight: 12, borderBottomWidth: 0.9, borderBottomColor: '#D6D6D6'}}>
+                                    <Text style = {{ color: '#333', fontFamily: 'Roboto-Regular', fontSize: 13, flex: 2}}>{item.name}</Text>
+                                    <Text style = {{ color: '#333', fontFamily: 'Roboto-Regular', fontSize: 13, flex: 1, textAlign: 'center'}}>{item.numberOfReports}</Text>
+                                    <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Regular', fontSize: 13, flex: 1, textAlign: 'center'}}>{item.actualNumber}</Text>
+                                </View>
+                            )
+                        }
+                    </View>
+                )
+            }}
+        />
+            <View style ={{backgroundColor: '#FFF', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: 10, paddingBottom: 10, paddingLeft: 12, paddingRight: 12, borderBottomLeftRadius: 6, borderBottomRightRadius: 6}}>
+                <Text style = {{ color: '#333', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 2}}>Tổng cộng</Text>
+                <Text style = {{ color: '#333', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{totalActualNumber}</Text>
+                <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{totalNumberOfReports}</Text>
+            </View>
         </View>
     )
 }
@@ -46,10 +96,39 @@ const TextInputCusTom = ({lable, text, setText, keyboardType}) => {
         </View>
     )
 }
-const CheckOutNocationScreen = ({navigation}) => {
+const CheckInNocationScreen = ({navigation}) => {
+    const [quantity, setQuantity] = useState(
+        [
+            {
+                name: 'Tên loại thủy sản',
+                numberOfReports: 'Sản lượng báo cáo (kg)',
+                actualNumber: 'Sản lượng thực tế (kg)'
+            },
+            {
+                name: 'Cá thu',
+                numberOfReports: '100000',
+                actualNumber: '120000'
+            },
+            {
+                name: 'Cá thác lác',
+                numberOfReports: '12345',
+                actualNumber: '12543'
+            },
+            {
+                name: 'Cá ngừ',
+                numberOfReports: '300000',
+                actualNumber: '310000'
+            },
+            {
+                name: 'Cá voi',
+                numberOfReports: '100000',
+                actualNumber: '111111'
+            },
+        ]
+    )
     return (
         <View style = {{flex: 1, marginLeft: 12, marginRight: 12}}>
-            <HeaderComponents label={'Phiếu thông báo tàu cá xuất Bến'} colorIcon={'#333'} navigation={navigation}/>
+            <HeaderComponents label={'Phiếu thông báo tàu cá nhập Bến'} colorIcon={'#333'} navigation={navigation}/>
             <View style = {{justifyContent: 'center', alignItems: 'center'}}>
                 <Text style = {{fontFamily: 'Roboto-Bold', fontSize: 14,color: '#005F94'}}>
                  TB0069/1022
@@ -239,7 +318,12 @@ const CheckOutNocationScreen = ({navigation}) => {
                 }}>
                     <TextInputCusTom lable={'Kiểm tra nội dung nhật kí'}/>
                 </View>
-                <Title title={'7. Kết luận'}/>
+                <Title title={'7. Kiểm tra sản lượng khai thác'}/>
+                <View>
+                    <DataTable data={quantity}/>
+                </View>
+
+                <Title title={'8. Kết luận'}/>
                 <View style = {{
                     borderRadius: 6,
                     backgroundColor: '#FFF',
@@ -295,4 +379,4 @@ const CheckOutNocationScreen = ({navigation}) => {
         </View>
     )
 }
-export default CheckOutNocationScreen
+export default CheckInNocationScreen

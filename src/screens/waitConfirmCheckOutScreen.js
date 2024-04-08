@@ -6,7 +6,7 @@ import TouchableOpacityComponent3 from "../components/touchableOpacityComponent3
 import { useState } from "react"
 
 
-const WaitConfirmCheckOut = ({navigation}) => {
+const WaitConfirmCheckOutScreen = ({navigation}) => {
     const [detail, setDetail] = useState(false)
     return (
         <View style ={{flex: 1}}>
@@ -527,4 +527,4 @@ const WaitConfirmCheckOut = ({navigation}) => {
     )
 }
 
-export default WaitConfirmCheckOut
+export default WaitConfirmCheckOutScreen

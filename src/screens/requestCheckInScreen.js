@@ -1,5 +1,5 @@
 import { Image, Modal, ScrollView, Text, TouchableOpacity, View } from "react-native"
-import { In } from "../components/statusComponent"
+import { In, Out } from "../components/statusComponent"
 import HeaderComponents from "../components/headerComponents"
 import { ICONS } from "../assets/icons/icons"
 import TouchableOpacityComponent3 from "../components/touchableOpacityComponent3"
@@ -45,7 +45,7 @@ const RequestCheckInScreen = ({navigation}) => {
                                         flex: 5
                                     }}>00776 - Thái học 2</Text>
                                     <View style = {{flex: 5, marginTop: 3}}>
-                                        <In/>
+                                        <Out/>
                                     </View>
                                 </View>
                                 <View style = {{ marginTop: 5, flex: 1}}>
@@ -75,7 +75,7 @@ const RequestCheckInScreen = ({navigation}) => {
                 {/* =========== */}
                 <View style = {{marginLeft: 12, marginBottom: 5, marginTop: 20}}>
                     <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 16}}>
-                        Vị trí
+                        Vị trí nhập bến mong muốn
                     </Text>
                 </View>
                 <View style = {{

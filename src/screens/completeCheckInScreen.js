@@ -4,9 +4,44 @@ import HeaderComponents from "../components/headerComponents"
 import { ICONS } from "../assets/icons/icons"
 import TouchableOpacityComponent3 from "../components/touchableOpacityComponent3"
 import { useState } from "react"
+import { IMAGES } from "../assets/images/images"
+import CheckBoxComponent2 from "../components/checkBoxComponent2"
 
+const TextInputCusTom = ({lable, text, setText, keyboardType}) => {
+    return(
+        <View
+            style ={{
+                height: 55,
+                backgroundColor: '#FFF',
+                borderBottomWidth: 1,
+                borderColor: '#D6D6D6',
+                marginTop: 15
+            }}
+        >
+            <Text style = {{
+                color: '#ADADAD',
+                fontSize: 12,
+                fontFamily: 'Roboto-Regular',
+            }}>{text}{lable}</Text>
+            <TextInput
+                placeholder="--"
+                placeholderTextColor={'#333'}
+                keyboardType= {keyboardType}
+                style ={{
+                    color: '#333',
+                    fontFamily: 'Roboto-Regular',
+                    fontSize: 16,
+                }}
+                onChangeText={setText}
+                value = {text}
+                editable = {false}
+            >
+            </TextInput>
+        </View>
+    )
+}
 
-const WaitConfirmCheckIn = ({navigation}) => {
+const CompleteCheckInScreen = ({navigation}) => {
     const [detailOut, setDetailOut] = useState(false)
     const [detailIn, setDetailIn] = useState(false)
     return (
@@ -467,7 +502,73 @@ const WaitConfirmCheckIn = ({navigation}) => {
                                         </TouchableOpacity>
                                     </View>
                                 </ScrollView>
-                            </View>  
+                            </View> 
+                            <TouchableOpacity onPress={() => navigation.navigate('CheckOutNocationScreen')}>
+                                <View style = {{
+                                    marginRight: 12,
+                                    marginLeft: 12,
+                                    marginTop: 20,
+                                    flexDirection: 'row',
+                                    backgroundColor: '#459AC9',
+                                    borderRadius: 6,
+                                    flex: 1,
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    }}>
+                                    <View style = {{paddingLeft: 2.28, paddingRight: 2.28, marginTop: 13, marginBottom: 12, marginLeft: 10, flex: 1}}>
+                                        <Image source={ICONS.Doc2} resizeMode="contain" style = {{height: 15.2, width: 20}}/>
+                                    </View>
+                                    <Text style = {{fontFamily: 'Roboto-Bold', color: '#FFF', fontSize: 14, marginLeft: 8, flex: 12}}>Phiếu thông báo tàu cá xuất cảng</Text>
+                                    <View style = {{height: 12, width: 12, paddingTop: 1.2, paddingRight: 3.6, paddingBottom: 1.2, paddingLeft: 3, flex: 1}}>
+                                        <Image source={ICONS.Next} resizeMode="contain" style = {{height: 12, width: 12, tintColor: '#FFF'}}/>
+                                    </View>
+                                </View>
+
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('MinutesCheckOutScreen')}>
+                                <View style = {{
+                                    marginRight: 12,
+                                    marginLeft: 12,
+                                    marginTop: 5,
+                                    flexDirection: 'row',
+                                    backgroundColor: '#459AC9',
+                                    borderRadius: 6,
+                                    flex: 1,
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    }}>
+                                    <View style = {{paddingLeft: 2.28, paddingRight: 2.28, marginTop: 13, marginBottom: 12, marginLeft: 10, flex: 1}}>
+                                        <Image source={ICONS.Doc2} resizeMode="contain" style = {{height: 15.2, width: 20}}/>
+                                    </View>
+                                    <Text style = {{fontFamily: 'Roboto-Bold', color: '#FFF', fontSize: 14, marginLeft: 8, flex: 12}}>Biên bản xuất bến</Text>
+                                    <View style = {{height: 12, width: 12, paddingTop: 1.2, paddingRight: 3.6, paddingBottom: 1.2, paddingLeft: 3, flex: 1}}>
+                                        <Image source={ICONS.Next} resizeMode="contain" style = {{height: 12, width: 12, tintColor: '#FFF'}}/>
+                                    </View>
+                                </View>
+
+                            </TouchableOpacity>  
+                            <View style = {{marginLeft: 12, marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
+                                <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 16, marginRight: 3}}>
+                                    Hình ảnh xuất bến
+                                </Text>
+                                <Image source={ICONS.Drop} style = {{width: 8, height: 6, tintColor: '#005F94'}}/>
+                            </View>
+                            <View style = {{
+                                marginTop: 5,
+                                marginRight: 12,
+                                marginLeft: 12,
+                                flexDirection: 'row',
+                            }}>
+                                <View style = {{marginRight: 10 ,borderRadius: 2}}>
+                                    <Image source={IMAGES.tau1} resizeMode="contain" style ={{width: 110, height: 71}}/>
+                                </View>
+                                <View style = {{marginRight: 10,borderRadius: 2}}>
+                                    <Image source={IMAGES.tau2} resizeMode="contain" style ={{width: 110, height: 71}}/>
+                                </View>
+                                <View style = {{marginRight: 10,borderRadius: 2}}>
+                                    <Image source={IMAGES.tau3} resizeMode="contain" style ={{width: 110, height: 71}}/>
+                                </View>
+                            </View>
                     </> 
                     )  
                 } 
@@ -797,7 +898,7 @@ const WaitConfirmCheckIn = ({navigation}) => {
                                     </View>
                                 </ScrollView>
                             </View>  
-                            <TouchableOpacity onPress={() => navigation.navigate('')} disabled={true}>
+                            <TouchableOpacity onPress={() => navigation.navigate('CheckInNocationScreen')}>
                                 <View style = {{
                                     marginRight: 12,
                                     marginLeft: 12,
@@ -808,7 +909,6 @@ const WaitConfirmCheckIn = ({navigation}) => {
                                     flex: 1,
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    opacity: 0.5
                                     }}>
                                     <View style = {{paddingLeft: 2.28, paddingRight: 2.28, marginTop: 13, marginBottom: 12, marginLeft: 10, flex: 1}}>
                                         <Image source={ICONS.Doc2} resizeMode="contain" style = {{height: 15.2, width: 20}}/>
@@ -820,7 +920,7 @@ const WaitConfirmCheckIn = ({navigation}) => {
                                 </View>
 
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => navigation.navigate('')} disabled={true}  >
+                            <TouchableOpacity onPress={() => navigation.navigate('MinutesCheckInScreen')}>
                                 <View style = {{
                                     marginRight: 12,
                                     marginLeft: 12,
@@ -831,7 +931,6 @@ const WaitConfirmCheckIn = ({navigation}) => {
                                     flex: 1,
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    opacity: 0.5
                                     }}>
                                     <View style = {{paddingLeft: 2.28, paddingRight: 2.28, marginTop: 13, marginBottom: 12, marginLeft: 10, flex: 1}}>
                                         <Image source={ICONS.Doc2} resizeMode="contain" style = {{height: 15.2, width: 20}}/>
@@ -842,7 +941,162 @@ const WaitConfirmCheckIn = ({navigation}) => {
                                     </View>
                                 </View>
 
-                            </TouchableOpacity> 
+                            </TouchableOpacity>
+                            <View style = {{marginLeft: 12, marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
+                                <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 16, marginRight: 3}}>
+                                    Thông tin xuất bến
+                                </Text>
+                                <Image source={ICONS.Drop} style = {{width: 8, height: 6, tintColor: '#005F94'}}/>
+                            </View>
+                            <View style = {{
+                                borderRadius: 6,
+                                backgroundColor: '#FFF',
+                                marginRight: 12,
+                                marginLeft: 12,
+                                flex: 1,
+                                paddingLeft: 12,
+                                paddingRight: 12
+                            }}>
+                                <TextInputCusTom lable={'Thời gian'} /> 
+                                <TextInputCusTom lable={'Số thuyền viên'} /> 
+                                <TextInputCusTom lable={'Kiểm tra nội dung nhật kí'} /> 
+                                <View style = {{marginTop: 20, marginBottom: 20}}>
+                                    <CheckBoxComponent2
+                                        label={'Xác nhận xuất bến'}
+                                        isChecked={true}
+                                        color={'#333'}
+                                    />
+                                </View>
+                            </View>
+                            <View style = {{
+                                borderRadius: 6,
+                                backgroundColor: '#FFF',
+                                marginRight: 12,
+                                marginLeft: 12,
+                                flex: 1,
+                                paddingLeft: 12,
+                                paddingRight: 12,
+                                marginTop: 5
+                            }}>
+                                <View style = {{paddingBottom: 15, borderBottomWidth: 0.8, borderBottomColor: '#D6D6D6'}}>
+                                    <View style = {{marginTop: 20}}>
+                                        <Text style ={{color:'#005F94', fontFamily: 'Roboto-Regular', fontSize: 16 }}>Chủ tàu</Text>
+                                    </View>
+                                    <View style = {{flexDirection: 'row'}}>
+                                        <View style = {{
+                                            marginTop: 10,
+                                            marginRight: 10,
+                                        }}>
+                                            <Image source={ICONS.Profile} resizeMode="contain" style = {{height: 48, width: 48}}/>
+                                        </View>
+                                        <View>
+                                            <View>
+                                                <Text style = {{
+                                                    fontFamily: 'Roboto-Bold',
+                                                    fontSize: 16,
+                                                    color: '#333',
+                                                }}>Phan Quốc Khánh</Text>
+                                            </View>
+                                            <View style = {{marginTop: 5}}>
+                                                <Text style = {{
+                                                    fontFamily: 'Roboto-Regular',
+                                                    fontSize: 12,
+                                                    color: '#ADADAD',
+                                                    paddingRight: 12
+                                                }}>
+                                                    Đội trưởng đội rạch đốc
+                                                </Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                </View>
+                                <View style = {{paddingBottom: 15, borderBottomWidth: 0.8, borderBottomColor: '#D6D6D6'}}>
+                                    <View style = {{marginTop: 20}}>
+                                        <Text style ={{color:'#005F94', fontFamily: 'Roboto-Regular', fontSize: 16 }}>Nhân viên kiểm soát</Text>
+                                    </View>
+                                    <View style = {{flexDirection: 'row'}}>
+                                        <View style = {{
+                                            marginTop: 10,
+                                            marginRight: 10,
+                                        }}>
+                                            <Image source={ICONS.Profile} resizeMode="contain" style = {{height: 48, width: 48}}/>
+                                        </View>
+                                        <View>
+                                            <View>
+                                                <Text style = {{
+                                                    fontFamily: 'Roboto-Bold',
+                                                    fontSize: 16,
+                                                    color: '#333',
+                                                }}>Phan Quốc Khánh</Text>
+                                            </View>
+                                            <View style = {{marginTop: 5}}>
+                                                <Text style = {{
+                                                    fontFamily: 'Roboto-Regular',
+                                                    fontSize: 12,
+                                                    color: '#ADADAD',
+                                                    paddingRight: 12
+                                                }}>
+                                                    Đội trưởng đội rạch đốc
+                                                </Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                </View>
+                                <View style = {{paddingBottom: 15, borderBottomWidth: 0.8, borderBottomColor: '#D6D6D6'}}>
+                                    <View style = {{marginTop: 20}}>
+                                        <Text style ={{color:'#005F94', fontFamily: 'Roboto-Regular', fontSize: 16 }}>Chiến sĩ canh gác</Text>
+                                    </View>
+                                    <View style = {{flexDirection: 'row'}}>
+                                        <View style = {{
+                                            marginTop: 10,
+                                            marginRight: 10,
+                                        }}>
+                                            <Image source={ICONS.Profile} resizeMode="contain" style = {{height: 48, width: 48}}/>
+                                        </View>
+                                        <View>
+                                            <View>
+                                                <Text style = {{
+                                                    fontFamily: 'Roboto-Bold',
+                                                    fontSize: 16,
+                                                    color: '#333',
+                                                }}>Phan Quốc Khánh</Text>
+                                            </View>
+                                            <View style = {{marginTop: 5}}>
+                                                <Text style = {{
+                                                    fontFamily: 'Roboto-Regular',
+                                                    fontSize: 12,
+                                                    color: '#ADADAD',
+                                                    paddingRight: 12
+                                                }}>
+                                                    Đội trưởng đội rạch đốc
+                                                </Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style = {{marginLeft: 12, marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
+                                <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 16, marginRight: 3}}>
+                                    Hình ảnh nhập bến
+                                </Text>
+                                <Image source={ICONS.Drop} style = {{width: 8, height: 6, tintColor: '#005F94'}}/>
+                            </View>
+                            <View style = {{
+                                marginTop: 5,
+                                marginRight: 12,
+                                marginLeft: 12,
+                                flexDirection: 'row',
+                            }}>
+                                <View style = {{marginRight: 10 ,borderRadius: 2}}>
+                                    <Image source={IMAGES.tau1} resizeMode="contain" style ={{width: 110, height: 71}}/>
+                                </View>
+                                <View style = {{marginRight: 10,borderRadius: 2}}>
+                                    <Image source={IMAGES.tau2} resizeMode="contain" style ={{width: 110, height: 71}}/>
+                                </View>
+                                <View style = {{marginRight: 10,borderRadius: 2}}>
+                                    <Image source={IMAGES.tau3} resizeMode="contain" style ={{width: 110, height: 71}}/>
+                                </View>
+                            </View>
                         </> 
                     )  
                 } 
@@ -856,4 +1110,4 @@ const WaitConfirmCheckIn = ({navigation}) => {
     )
 }
 
-export default WaitConfirmCheckIn
+export default CompleteCheckInScreen

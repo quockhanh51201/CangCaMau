@@ -57,7 +57,7 @@ const TitleChild = ({title}) => {
         </View>
     )
 }
-const MinutesCheckOutScreen = ({navigation}) => {
+const MinutesCheckInScreen = ({navigation}) => {
     return (
         <View style = {{flex: 1, marginLeft: 12, marginRight: 12}}>
             <HeaderComponents label={'Biên bản kiểm tra tàu cá xuất Bến'} colorIcon={'#333'} navigation={navigation}/>
@@ -639,4 +639,4 @@ const MinutesCheckOutScreen = ({navigation}) => {
     ) 
 }
 
-export default MinutesCheckOutScreen
+export default MinutesCheckInScreen
