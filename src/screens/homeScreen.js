@@ -15,13 +15,13 @@ const HomeScreen = ({navigation}) => {
         {
             label: 'Tàu cá',
             image: ICONS.XuatBen,
-            screen: ''
+            screen: 'ListOfShipScreen'
 
         },
         {
             label: 'Thuyền viên',
             image: ICONS.ThuyenVien,
-            screen: ''
+            screen: 'ListOfCrewScreen'
 
         },
         {

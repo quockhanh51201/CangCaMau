@@ -3,7 +3,6 @@ import HeaderComponents from "../components/headerComponents"
 import { ICONS } from "../assets/icons/icons"
 import { IMAGES } from "../assets/images/images"
 import { useState } from "react"
-import TouchableOpacityComponents from "../components/touchableOpacityComponents"
 
 
 const TextInputCusTom = ({lable, text, setText, keyboardType}) => {

@@ -57,8 +57,8 @@ const DataTable = ({data}) => {
         />
             <View style ={{backgroundColor: '#FFF', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: 10, paddingBottom: 10, paddingLeft: 12, paddingRight: 12, borderBottomLeftRadius: 6, borderBottomRightRadius: 6}}>
                 <Text style = {{ color: '#333', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 2}}>Tổng cộng</Text>
-                <Text style = {{ color: '#333', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{totalActualNumber}</Text>
-                <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{totalNumberOfReports}</Text>
+                <Text style = {{ color: '#333', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{totalNumberOfReports}</Text>
+                <Text style = {{ color: '#005F94', fontFamily: 'Roboto-Bold', fontSize: 13, flex: 1, textAlign: 'center'}}>{totalActualNumber}</Text>
             </View>
         </View>
     )

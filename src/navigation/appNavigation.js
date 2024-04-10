@@ -36,6 +36,14 @@ import WaitConfirmCheckInScreen from "../screens/waitConfirmCheckInScreen";
 import WaitConfirmCheckOutScreen from "../screens/waitConfirmCheckOutScreen";
 import CheckInNocationScreen from "../screens/checkInNocationScreen";
 import MinutesCheckInScreen from "../screens/minutesCheckInScreen";
+import ListOfShipScreen from "../screens/listOfShipScreen";
+import ShipInformationScreen from "../screens/shipInformationScreen";
+import CrewInformationScreen from "../screens/crewInformationScreen";
+import AddMemberScreen from "../screens/addMemberScreen";
+import ListOfCrewScreen from "../screens/listOfCrewScreen";
+import DetailCrewScreen from "../screens/detailCrewScreen";
+import UpdateDetailCrewScreen from "../screens/UpdateDetailCrewScreen";
+import FilterCrewScreen from "../screens/FilterCrewSceen";
 
 const AppNavigation = () => {
     const Stack = createNativeStackNavigator();
@@ -72,17 +80,22 @@ const AppNavigation = () => {
                 <Stack.Screen name = "RefuseCheckOutScreen" component={RefuseCheckOutScreen}/>
                 <Stack.Screen name = "WaitConfirmCheckOutScreen" component={WaitConfirmCheckOutScreen}/>
                 <Stack.Screen name = "WaitConfirmCheckInScreen" component={WaitConfirmCheckInScreen}/>
-                <Stack.Screen name = "NoCheckInScreen" component={NoCheckInScreen}/>
+                <Stack.Screen name = "NoCheckInSc66reen" component={NoCheckInScreen}/>
                 <Stack.Screen name = "NoCheckOutScreen" component={NoCheckOutScreen}/>
                 <Stack.Screen name = "CompleteCheckOutScreen" component={CompleteCheckOutScreen}/>
                 <Stack.Screen name = "CompleteCheckInScreen" component={CompleteCheckInScreen}/>
                 <Stack.Screen name = "CheckInNocationScreen" component={CheckInNocationScreen}/>
                 <Stack.Screen name = "MinutesCheckInScreen" component={MinutesCheckInScreen}/>
+                <Stack.Screen name = "ListOfShipScreen" component={ListOfShipScreen}/>
+                <Stack.Screen name = "ShipInformationScreen" component={ShipInformationScreen}/>
+                <Stack.Screen name = "CrewInformationScreen" component={CrewInformationScreen}/>
+                <Stack.Screen name = "AddMemberScreen" component={AddMemberScreen}/>
+                <Stack.Screen name = "ListOfCrewScreen" component={ListOfCrewScreen}/>
+                <Stack.Screen name = "DetailCrewScreen" component={DetailCrewScreen}/>
+                <Stack.Screen name = "UpdateDetailCrewScreen" component={UpdateDetailCrewScreen}/>
+                <Stack.Screen name = "FilterCrewScreen" component={FilterCrewScreen}/>
 
 
-
-
-            
 
             </Stack.Navigator>
         </NavigationContainer>

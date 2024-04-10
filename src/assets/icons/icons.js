@@ -31,6 +31,7 @@ export const ICONS = {
     Delete: require('../icons/Delete.png'),
     Doc2: require('../icons/Doc2.png'),
     I: require('../icons/i.png'),
+    Add: require('../icons/Add.png'),
 
 
 
