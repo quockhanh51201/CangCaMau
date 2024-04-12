@@ -54,42 +54,42 @@ const HomeCBScreen = ({navigation}) => {
     {
       label: 'Yêu cầu Xuất/Nhập bến',
       image: ICONS.ItemCB1,
-      screen: 'InOutScreen',
+      screen: '',
     },
     {
       label: 'Tàu cá',
       image: ICONS.ItemCB2,
-      screen: 'ListOfShipScreen',
+      screen: '',
     },
     {
       label: 'Thuyền viên',
       image: ICONS.ItemCB3,
-      screen: 'ListOfCrewScreen',
+      screen: '',
     },
     {
       label: 'Vi phạm',
       image: ICONS.ItemCB4,
-      screen: 'ViolationHistoryScreen',
+      screen: '',
     },
     {
       label: 'Tai nạn',
       image: ICONS.ItemCB5,
-      screen: 'AccidentHistoryScreen',
+      screen: '',
     },
     {
       label: 'Thông báo',
       image: ICONS.ItemCB6,
-      screen: 'WarningScreen',
+      screen: '',
     },
     {
       label: 'Hỏi ý kiến cấp trên',
       image: ICONS.ItemCB7,
-      screen: 'InScreen',
+      screen: '',
     },
     {
       label: 'Tra cứu bến',
       image: ICONS.ItemCB8,
-      screen: 'OutScreen',
+      screen: '',
     },
   ]);
   return (
