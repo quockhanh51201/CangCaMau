@@ -6,9 +6,10 @@ const ItemHomeComponent = ({navigation, items}) => {
     <FlatList
       data={items}
       renderItem={({item, index}) => {
-        if (index == 2 || index == 3) {
-          index++;
-        }
+        // if (index == 2 || index == 3) {
+        //   index++;
+        // }
+        index++;
         return (
           <TouchableOpacity
             onPress={() => {
@@ -19,7 +20,8 @@ const ItemHomeComponent = ({navigation, items}) => {
                 width: 166,
                 height: 139,
                 borderRadius: 20,
-                backgroundColor: index % 2 == 0 ? '#8DD4FC' : '#FFCFA2',
+                backgroundColor:
+                  ((index - (index % 2)) / 2) % 2 == 0 ? '#8DD4FC' : '#FFCFA2',
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginRight: 11,

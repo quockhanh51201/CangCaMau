@@ -1,47 +1,95 @@
 import {
+  FlatList,
   Image,
   ScrollView,
   StatusBar,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {ICONS} from '../assets/icons/icons';
 import {useEffect, useLayoutEffect, useState} from 'react';
-import ItemHomeComponent from '../components/itemHomeComponent';
-import NavMenuComponent from '../components/navMenuComponent';
 
-const HomeScreen = ({navigation}) => {
+const ItemHomeComponent = ({navigation, items}) => {
+  return (
+    <FlatList
+      data={items}
+      renderItem={({item, index}) => {
+        return (
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(item.screen);
+            }}>
+            <View
+              style={{
+                width: 110,
+                height: 139,
+                borderRadius: 20,
+                backgroundColor: index % 2 == 0 ? '#D6DAF5' : '#FFCFA2',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: 11,
+                marginBottom: 11,
+              }}>
+              <Image source={item.image} style={{width: 60, height: 60}} />
+              <Text
+                style={{
+                  color: index % 2 == 0 ? '#3345CB' : '#FF820F',
+                  fontFamily: 'Roboto-Bold',
+                  fontSize: 14,
+                  marginTop: 13,
+                }}>
+                {item.label}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        );
+      }}
+      numColumns={3}></FlatList>
+  );
+};
+const HomeCBScreen = ({navigation}) => {
   const [itemHome, setItemHome] = useState([
     {
-      label: 'Xuất/Nhập bến',
-      image: ICONS.NhapBen,
+      label: 'Yêu cầu Xuất/Nhập bến',
+      image: ICONS.ItemCB1,
       screen: 'InOutScreen',
     },
     {
       label: 'Tàu cá',
-      image: ICONS.XuatBen,
+      image: ICONS.ItemCB2,
       screen: 'ListOfShipScreen',
     },
     {
       label: 'Thuyền viên',
-      image: ICONS.ThuyenVien,
+      image: ICONS.ItemCB3,
       screen: 'ListOfCrewScreen',
     },
     {
-      label: 'Lịch sử vi phạm',
-      image: ICONS.LichSuVP,
+      label: 'Vi phạm',
+      image: ICONS.ItemCB4,
       screen: 'ViolationHistoryScreen',
     },
     {
-      label: 'Lịch sử tai nạn',
-      image: ICONS.LichSuTN,
-      screen: 'Accident',
+      label: 'Tai nạn',
+      image: ICONS.ItemCB5,
+      screen: 'AccidentHistoryScreen',
     },
     {
-      label: 'Cảnh báo',
-      image: ICONS.CanhBao,
+      label: 'Thông báo',
+      image: ICONS.ItemCB6,
       screen: 'WarningScreen',
+    },
+    {
+      label: 'Hỏi ý kiến cấp trên',
+      image: ICONS.ItemCB7,
+      screen: 'InScreen',
+    },
+    {
+      label: 'Tra cứu bến',
+      image: ICONS.ItemCB8,
+      screen: 'OutScreen',
     },
   ]);
   return (
@@ -126,4 +174,4 @@ const HomeScreen = ({navigation}) => {
   );
 };
 
-export default HomeScreen;
+export default HomeCBScreen;

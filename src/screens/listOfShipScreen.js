@@ -137,6 +137,7 @@ const ListOfShipScreen = ({navigation}) => {
           content={'Thêm phương tiện'}
           color={'#FFF'}
           backgroundColor={'#459AC9'}
+          onPress={() => navigation.navigate('AddShipScreen')}
         />
       </View>
     </View>

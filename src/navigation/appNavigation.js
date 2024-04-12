@@ -44,6 +44,21 @@ import ListOfCrewScreen from '../screens/listOfCrewScreen';
 import DetailCrewScreen from '../screens/detailCrewScreen';
 import UpdateDetailCrewScreen from '../screens/UpdateDetailCrewScreen';
 import FilterCrewScreen from '../screens/FilterCrewSceen';
+import AddShipScreen from '../screens/addShipScreen';
+import AddShipScreen2 from '../screens/addShipScreen2';
+import AddShipScreen3 from '../screens/addShipScreen3';
+import AddShipScreen4 from '../screens/addShipScreen4';
+import AddShipScreen5 from '../screens/addShipScreen5';
+import AddShipScreen6 from '../screens/addShipScreen6';
+import ViolationHistoryScreen from '../screens/violationHistoryScreen';
+import AccidentHistoryScreen from '../screens/accidentHistoryScreen';
+import WarningScreen from '../screens/warningScreen';
+import DetailViolationScreen from '../screens/detailViolationScreen';
+import DetailAccidentScreen from '../screens/detailAccidentScreen';
+import DetailWarningScreen from '../screens/detailWarningScreen';
+import NavMenuCBComponent from '../components/navMenuCBComponent';
+import HomeCBScreen from '../screens/homeCBScreen';
+import ProfileCBScreen from '../screens/profileCBScreen';
 
 const AppNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -53,6 +68,7 @@ const AppNavigation = () => {
         screenOptions={{headerShown: false}}
         initialRouteName="Login">
         <Stack.Screen name="TabBar" component={NavMenuComponent} />
+        <Stack.Screen name="TabBarCB" component={NavMenuCBComponent} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="ForgotPass" component={ForgotPassScreen} />
@@ -147,6 +163,35 @@ const AppNavigation = () => {
           component={UpdateDetailCrewScreen}
         />
         <Stack.Screen name="FilterCrewScreen" component={FilterCrewScreen} />
+        <Stack.Screen name="AddShipScreen" component={AddShipScreen} />
+        <Stack.Screen name="AddShipScreen2" component={AddShipScreen2} />
+        <Stack.Screen name="AddShipScreen3" component={AddShipScreen3} />
+        <Stack.Screen name="AddShipScreen4" component={AddShipScreen4} />
+        <Stack.Screen name="AddShipScreen5" component={AddShipScreen5} />
+        <Stack.Screen name="AddShipScreen6" component={AddShipScreen6} />
+        <Stack.Screen
+          name="ViolationHistoryScreen"
+          component={ViolationHistoryScreen}
+        />
+        <Stack.Screen
+          name="AccidentHistoryScreen"
+          component={AccidentHistoryScreen}
+        />
+        <Stack.Screen name="WarningScreen" component={WarningScreen} />
+        <Stack.Screen
+          name="DetailViolationScreen"
+          component={DetailViolationScreen}
+        />
+        <Stack.Screen
+          name="DetailAccidentScreen"
+          component={DetailAccidentScreen}
+        />
+        <Stack.Screen
+          name="DetailWarningScreen"
+          component={DetailWarningScreen}
+        />
+        <Stack.Screen name="HomeCBScreen" component={HomeCBScreen} />
+        <Stack.Screen name="ProfileCBScreen" component={ProfileCBScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
