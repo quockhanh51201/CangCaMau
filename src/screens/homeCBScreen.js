@@ -54,7 +54,7 @@ const HomeCBScreen = ({navigation}) => {
     {
       label: 'Yêu cầu Xuất/Nhập bến',
       image: ICONS.ItemCB1,
-      screen: '',
+      screen: 'aaa',
     },
     {
       label: 'Tàu cá',
