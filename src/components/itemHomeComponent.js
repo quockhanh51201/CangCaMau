@@ -30,7 +30,10 @@ const ItemHomeComponent = ({navigation, items}) => {
               <Image source={item.image} style={{width: 60, height: 60}} />
               <Text
                 style={{
-                  color: index % 2 == 0 ? '#005F94' : '#FF820F',
+                  color:
+                    ((index - (index % 2)) / 2) % 2 == 0
+                      ? '#005F94'
+                      : '#FF820F',
                   fontFamily: 'Roboto-Bold',
                   fontSize: 14,
                   marginTop: 13,

@@ -31,7 +31,7 @@ const LoginScreen = ({navigation}) => {
   useEffect(() => {
     dispatch(fetchAllAuth());
   }, []);
-
+  console.log(listAuth.body);
   return (
     <>
       {selectedUse === 'Chủ tàu' ? (
@@ -256,7 +256,7 @@ const LoginScreen = ({navigation}) => {
                 alignItems: 'center',
               }}>
               <TouchableOpacity
-                onPress={() => navigation.navigate('ForgotPass')}>
+                onPress={() => navigation.navigate('ForgotPassCBScreen')}>
                 <Text
                   style={{
                     fontFamily: 'Inter-Regular',

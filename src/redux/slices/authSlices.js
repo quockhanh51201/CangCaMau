@@ -41,7 +41,6 @@ export const authSlice = createSlice({
       .addCase(fetchAllAuth.fulfilled, (state, action) => {
         // Add user to the state array
         state.listAuth = action.payload;
-        console.log('action ne: ', action.payload);
         state.isLoaing = false;
         state.isError = false;
       })

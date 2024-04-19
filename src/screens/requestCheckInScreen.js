@@ -10,7 +10,6 @@ import {In, Out} from '../components/statusComponent';
 import HeaderComponents from '../components/headerComponents';
 import {ICONS} from '../assets/icons/icons';
 import TouchableOpacityComponent3 from '../components/touchableOpacityComponent3';
-import TouchableOpacityComponent2 from '../components/touchableOpacityComponent2';
 import {useState} from 'react';
 
 const RequestCheckInScreen = ({navigation}) => {

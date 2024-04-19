@@ -10,11 +10,14 @@ import {
 } from 'react-native';
 import {ICONS} from '../assets/icons/icons';
 import {useEffect, useLayoutEffect, useState} from 'react';
+import SearchComponent from '../components/searchComponent';
+import {IMAGES} from '../assets/images/images';
 
 const ItemHomeComponent = ({navigation, items}) => {
   return (
     <FlatList
       data={items}
+      contentContainerStyle={{alignSelf: 'center'}}
       renderItem={({item, index}) => {
         return (
           <TouchableOpacity
@@ -24,12 +27,13 @@ const ItemHomeComponent = ({navigation, items}) => {
             <View
               style={{
                 width: 110,
-                height: 139,
+                height: 140,
                 borderRadius: 20,
                 backgroundColor: index % 2 == 0 ? '#D6DAF5' : '#FFCFA2',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginRight: 11,
+                marginRight: 5.5,
+                marginLeft: 5.5,
                 marginBottom: 11,
               }}>
               <Image source={item.image} style={{width: 60, height: 60}} />
@@ -54,42 +58,42 @@ const HomeCBScreen = ({navigation}) => {
     {
       label: 'Yêu cầu Xuất/Nhập bến',
       image: ICONS.ItemCB1,
-      screen: '',
+      screen: 'InOutCBScreen',
     },
     {
       label: 'Tàu cá',
       image: ICONS.ItemCB2,
-      screen: '',
+      screen: 'ListOfShipCBScreen',
     },
     {
       label: 'Thuyền viên',
       image: ICONS.ItemCB3,
-      screen: '',
+      screen: 'ListOfCrewCBScreen',
     },
     {
       label: 'Vi phạm',
       image: ICONS.ItemCB4,
-      screen: '',
+      screen: 'ViolationCBScreen',
     },
     {
       label: 'Tai nạn',
       image: ICONS.ItemCB5,
-      screen: '',
+      screen: 'AccidentHistoryCBScreen',
     },
     {
       label: 'Thông báo',
       image: ICONS.ItemCB6,
-      screen: '',
+      screen: 'NotificationCBScreen',
     },
     {
       label: 'Hỏi ý kiến cấp trên',
       image: ICONS.ItemCB7,
-      screen: '',
+      screen: 'AskCBScreen',
     },
     {
       label: 'Tra cứu bến',
       image: ICONS.ItemCB8,
-      screen: '',
+      screen: 'ListPierScreen',
     },
   ]);
   return (
@@ -98,61 +102,60 @@ const HomeCBScreen = ({navigation}) => {
       <ScrollView>
         <View
           style={{
-            flexDirection: 'row',
-            height: 46,
-            borderBottomColor: '#F5F5F5',
-            borderBottomWidth: 1,
-            marginTop: 5,
-          }}>
-          <View
-            style={{
-              width: 40,
-              height: 40,
-              marginLeft: 15,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={ICONS.Profile}
-              resizeMode="stretch"
-              style={{height: 36, width: 36}}
-            />
-          </View>
-          <View
-            style={{
-              marginLeft: 5,
-            }}>
-            <Text
-              style={{
-                fontFamily: 'Inter-Bold',
-                fontSize: 16,
-                color: '#333333',
-              }}>
-              Phan Quốc Khánh
-            </Text>
-            <Text
-              style={{
-                fontSize: 15,
-                fontFamily: 'Roboto-Regular',
-                color: '#005F94',
-              }}>
-              Thuyền trưởng
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{
             marginLeft: 15,
             marginTop: 15,
             marginBottom: 20,
           }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              borderBottomWidth: 0.8,
+              borderBottomColor: '#F5F5F5',
+              paddingBottom: 5,
+              marginBottom: 15,
+            }}>
+            <View
+              style={{
+                borderRadius: 6,
+                alignItems: 'center',
+                backgroundColor: '#333',
+                height: 38,
+                width: 343,
+                justifyContent: 'flex-start',
+                flexDirection: 'row',
+                padding: 13,
+                opacity: 0.3,
+              }}>
+              <Image
+                source={ICONS.Search}
+                resizeMode="stretch"
+                style={{tintColor: 'black', height: 20, width: 20}}
+              />
+              <TextInput
+                placeholder="Nhập nội dung tìm kiếm ..."
+                placeholderTextColor="#333"
+                style={{
+                  height: 38,
+                  fontSize: 14,
+                  fontFamily: 'Roboto-Regular',
+                }}
+              />
+            </View>
+            <View style={{marginLeft: 10}}>
+              <Image
+                source={IMAGES.avt}
+                resizeMode="contain"
+                style={{width: 36, height: 36}}
+              />
+            </View>
+          </View>
           <Text
             style={{
               fontFamily: 'Inter-Regular',
               fontSize: 18,
               letterSpacing: 1.8,
               textTransform: 'uppercase',
-              color: '#005F94',
+              color: '#2B13C0',
             }}>
             Quản lý
           </Text>
@@ -161,12 +164,12 @@ const HomeCBScreen = ({navigation}) => {
               fontFamily: 'Inter-Bold',
               fontSize: 28,
               textTransform: 'uppercase',
-              color: '#005F94',
+              color: '#2B13C0',
             }}>
             tàu cá cà mau
           </Text>
         </View>
-        <View style={{alignItems: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center'}}>
           <ItemHomeComponent navigation={navigation} items={itemHome} />
         </View>
       </ScrollView>

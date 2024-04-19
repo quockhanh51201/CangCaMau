@@ -1,7 +1,7 @@
 import {Image, Text, TextInput, View} from 'react-native';
 import {ICONS} from '../assets/icons/icons';
 
-const SearchComponent = ({style, placeholder}) => {
+const SearchComponent = ({placeholder}) => {
   return (
     <View
       style={{

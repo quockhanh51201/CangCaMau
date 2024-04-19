@@ -59,6 +59,35 @@ import DetailWarningScreen from '../screens/detailWarningScreen';
 import NavMenuCBComponent from '../components/navMenuCBComponent';
 import HomeCBScreen from '../screens/homeCBScreen';
 import ProfileCBScreen from '../screens/profileCBScreen';
+import InforCBScreen from '../screens/inforCBScreen';
+import ForgotPassCBScreen from '../screens/forgotPassCBScreen';
+import InOutCBScreen from '../screens/inOutCBScreen';
+import ConfirmRequestCheckOutScreen from '../screens/confirmRequestCheckOutScreen';
+import ConfirmRequestCheckInScreen from '../screens/confirmRequestCheckInScreen';
+import ListOfCrewCBScreen from '../screens/listOfCrewCBScreen';
+import DetailCrewCBScreen from '../screens/detailCrewCBScreen';
+import ListOfShipCBScreen from '../screens/listOfShipCBScreen';
+import ShipInformationCBScreen from '../screens/shipInformationCBScreen';
+import FilterShipCBSceen from '../screens/FilterShipCBSceen';
+import ViolationCBScreen from '../screens/violationCBScreen';
+import FilterViolationCBSceen from '../screens/FilterViolationCBSceen';
+import DetailViolationCBScreen from '../screens/detailViolationCBScreen';
+import AddViolationScreen from '../screens/addViolationScreen';
+import AccidentHistoryCBScreen from '../screens/accidentHistoryCBScreen';
+import FilterAccidentCBSceen from '../screens/FilterAccidentCBSceen';
+import DetailAccidentCBScreen from '../screens/detailAccidentCBScreen';
+import AddAccidentCBScreen from '../screens/addAccidentCBScreen';
+import Test from '../screens/test';
+import NotificationCBScreen from '../screens/notificationCBScreen';
+import DetailNotificationCBScreen from '../screens/DetailNotificationCBScreen';
+import AddNotifinationCBScreen from '../screens/addNotifinationCBScreen';
+import ListPierScreen from '../screens/listPierScreen';
+import DetailPierScreen from '../screens/detailPierScreen';
+import AskCBScreen from '../screens/askCBScreen';
+import FilterAskCBSceen from '../screens/FilterAskCBSceen';
+import AddAskScreen from '../screens/addAskScreen';
+import DetailAskScreen from '../screens/detailAskScreen';
+import ReplyAskScreen from '../screens/replyAskScreen';
 
 const AppNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -192,6 +221,86 @@ const AppNavigation = () => {
         />
         <Stack.Screen name="HomeCBScreen" component={HomeCBScreen} />
         <Stack.Screen name="ProfileCBScreen" component={ProfileCBScreen} />
+        <Stack.Screen name="InforCBScreen" component={InforCBScreen} />
+        <Stack.Screen
+          name="ForgotPassCBScreen"
+          component={ForgotPassCBScreen}
+        />
+        <Stack.Screen name="InOutCBScreen" component={InOutCBScreen} />
+        <Stack.Screen
+          name="ConfirmRequestCheckOutScreen"
+          component={ConfirmRequestCheckOutScreen}
+        />
+        <Stack.Screen
+          name="ConfirmRequestCheckInScreen"
+          component={ConfirmRequestCheckInScreen}
+        />
+        <Stack.Screen
+          name="ListOfCrewCBScreen"
+          component={ListOfCrewCBScreen}
+        />
+        <Stack.Screen
+          name="DetailCrewCBScreen"
+          component={DetailCrewCBScreen}
+        />
+        <Stack.Screen
+          name="ListOfShipCBScreen"
+          component={ListOfShipCBScreen}
+        />
+        <Stack.Screen
+          name="ShipInformationCBScreen"
+          component={ShipInformationCBScreen}
+        />
+        <Stack.Screen name="FilterShipCBSceen" component={FilterShipCBSceen} />
+        <Stack.Screen name="ViolationCBScreen" component={ViolationCBScreen} />
+        <Stack.Screen
+          name="FilterViolationCBSceen"
+          component={FilterViolationCBSceen}
+        />
+        <Stack.Screen
+          name="DetailViolationCBScreen"
+          component={DetailViolationCBScreen}
+        />
+        <Stack.Screen
+          name="AddViolationScreen"
+          component={AddViolationScreen}
+        />
+        <Stack.Screen
+          name="AccidentHistoryCBScreen"
+          component={AccidentHistoryCBScreen}
+        />
+        <Stack.Screen
+          name="FilterAccidentCBSceen"
+          component={FilterAccidentCBSceen}
+        />
+        <Stack.Screen
+          name="DetailAccidentCBScreen"
+          component={DetailAccidentCBScreen}
+        />
+        <Stack.Screen
+          name="AddAccidentCBScreen"
+          component={AddAccidentCBScreen}
+        />
+        <Stack.Screen
+          name="NotificationCBScreen"
+          component={NotificationCBScreen}
+        />
+        <Stack.Screen
+          name="DetailNotificationCBScreen"
+          component={DetailNotificationCBScreen}
+        />
+        <Stack.Screen
+          name="AddNotifinationCBScreen"
+          component={AddNotifinationCBScreen}
+        />
+        <Stack.Screen name="ListPierScreen" component={ListPierScreen} />
+        <Stack.Screen name="DetailPierScreen" component={DetailPierScreen} />
+        <Stack.Screen name="AskCBScreen" component={AskCBScreen} />
+        <Stack.Screen name="FilterAskCBSceen" component={FilterAskCBSceen} />
+        <Stack.Screen name="AddAskScreen" component={AddAskScreen} />
+        <Stack.Screen name="DetailAskScreen" component={DetailAskScreen} />
+        <Stack.Screen name="ReplyAskScreen" component={ReplyAskScreen} />
+        <Stack.Screen name="Test" component={Test} />
       </Stack.Navigator>
     </NavigationContainer>
   );

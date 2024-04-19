@@ -14,8 +14,9 @@ import {cloneElement, useState} from 'react';
 import {ICONS} from '../assets/icons/icons';
 import moment from 'moment';
 import TouchableOpacityComponent2 from '../components/touchableOpacityComponent2';
+import RadioComponent2 from '../components/radioComponent2';
 
-const FilterScreen = ({navigation}) => {
+const FilterAskCBSceen = ({navigation}) => {
   const [selectedApprove, setSelectedApprove] = useState('');
   const handleApproveRadioChange = label => {
     setSelectedApprove(label);
@@ -106,110 +107,12 @@ const FilterScreen = ({navigation}) => {
       <HeaderComponent3
         label={'Lọc kết quả'}
         navigation={navigation}
-        backgroundColor={'#459AC9'}
+        backgroundColor={'#583CFF'}
       />
       <ScrollView>
         <Text
           style={{
-            color: '#005F94',
-            fontFamily: 'Roboto-Bold',
-            fontSize: 16,
-            marginLeft: 12,
-            marginTop: 15,
-          }}>
-          Tình trạng duyệt đề nghị
-        </Text>
-        <View
-          style={{
-            backgroundColor: '#FFF',
-            borderRadius: 6,
-            marginLeft: 12,
-            marginRight: 12,
-            marginTop: 5,
-          }}>
-          <RadioComponent
-            label={'Tất cả tình trạng'}
-            onPress={() => handleApproveRadioChange('Tất cả tình trạng')}
-            isChecked={selectedApprove === 'Tất cả tình trạng'}
-          />
-          <RadioComponent
-            label={'Trong bờ'}
-            onPress={() => handleApproveRadioChange('Trong bờ')}
-            isChecked={selectedApprove === 'Trong bờ'}
-          />
-          <RadioComponent
-            label={'Ngoài biển'}
-            onPress={() => handleApproveRadioChange('Ngoài biển')}
-            isChecked={selectedApprove === 'Ngoài biển'}
-          />
-          <RadioComponent
-            label={'Không được nhập bến'}
-            onPress={() => handleApproveRadioChange('Không được nhập bến')}
-            isChecked={selectedApprove === 'Không được nhập bến'}
-          />
-          <RadioComponent
-            label={'Không được xuất bến'}
-            onPress={() => handleApproveRadioChange('Không được xuất bến')}
-            isChecked={selectedApprove === 'Không được xuất bến'}
-          />
-          <RadioComponent
-            label={'Chờ xác nhận xuất bến'}
-            onPress={() => handleApproveRadioChange('Chờ xác nhận xuất bến')}
-            isChecked={selectedApprove === 'Chờ xác nhận xuất bến'}
-          />
-          <RadioComponent
-            label={'Được tiếp nhận'}
-            onPress={() => handleApproveRadioChange('Được tiếp nhận')}
-            isChecked={selectedApprove === 'Được tiếp nhận'}
-          />
-          <RadioComponent
-            label={'Từ chối'}
-            onPress={() => handleApproveRadioChange('Từ chối')}
-            isChecked={selectedApprove === 'Từ chối'}
-          />
-          <RadioComponent
-            label={'Chờ tiếp nhận yêu cầu'}
-            onPress={() => handleApproveRadioChange('Chờ tiếp nhận yêu cầu')}
-            isChecked={selectedApprove === 'Chờ tiếp nhận yêu cầu'}
-          />
-        </View>
-        <Text
-          style={{
-            color: '#005F94',
-            fontFamily: 'Roboto-Bold',
-            fontSize: 16,
-            marginLeft: 12,
-            marginTop: 15,
-          }}>
-          Trạng thái
-        </Text>
-        <View
-          style={{
-            backgroundColor: '#FFF',
-            borderRadius: 6,
-            marginLeft: 12,
-            marginRight: 12,
-            marginTop: 5,
-          }}>
-          <RadioComponent
-            label={'Tất cả thao tác'}
-            onPress={() => handleStatusRadioChange('Tất cả thao tác')}
-            isChecked={selectedStatus === 'Tất cả thao tác'}
-          />
-          <RadioComponent
-            label={'Xuất bến'}
-            onPress={() => handleStatusRadioChange('Xuất bến')}
-            isChecked={selectedStatus === 'Xuất bến'}
-          />
-          <RadioComponent
-            label={'Nhập bến'}
-            onPress={() => handleStatusRadioChange('Nhập bến')}
-            isChecked={selectedStatus === 'Nhập bến'}
-          />
-        </View>
-        <Text
-          style={{
-            color: '#005F94',
+            color: '#3345CB',
             fontFamily: 'Roboto-Bold',
             fontSize: 16,
             marginLeft: 12,
@@ -225,7 +128,7 @@ const FilterScreen = ({navigation}) => {
             marginRight: 12,
             marginTop: 5,
           }}>
-          <RadioComponent
+          <RadioComponent2
             label={'Tất cả thời gian'}
             onPress={() => handleTimeRadioChange('Tất cả thời gian')}
             isChecked={selectedTime === 'Tất cả thời gian'}
@@ -324,29 +227,30 @@ const FilterScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 29,
-            marginLeft: 12,
-            marginRight: 12,
-            marginBottom: 27,
-            justifyContent: 'space-evenly',
-          }}>
-          <TouchableOpacityComponent2
-            content={'Đặt lại'}
-            color={'#828282'}
-            backgroundColor={'#FFF'}
-          />
-          <TouchableOpacityComponent2
-            content={'Áp dụng'}
-            color={'#FFF'}
-            backgroundColor={'#005F94'}
-          />
-        </View>
       </ScrollView>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: 29,
+          marginLeft: 12,
+          marginRight: 12,
+          marginBottom: 27,
+          justifyContent: 'space-evenly',
+        }}>
+        <TouchableOpacityComponent2
+          content={'Đặt lại'}
+          color={'#828282'}
+          backgroundColor={'#FFFFFF'}
+        />
+        <TouchableOpacityComponent2
+          content={'Áp dụng'}
+          color={'#FFF'}
+          backgroundColor={'#3345CB'}
+          onPress={() => navigation.goBack()}
+        />
+      </View>
     </View>
   );
 };
 
-export default FilterScreen;
+export default FilterAskCBSceen;

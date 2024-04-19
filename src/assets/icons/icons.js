@@ -42,4 +42,10 @@ export const ICONS = {
   ItemCB6: require('../icons/itemCB6.png'),
   ItemCB7: require('../icons/itemCB7.png'),
   ItemCB8: require('../icons/itemCB8.png'),
+  CBox1: require('../icons/cbox1.png'),
+  CBox2: require('../icons/cbox2.png'),
+  CBox3: require('../icons/cbox3.png'),
+  Check: require('../icons/check.png'),
+  Check1: require('../icons/check1.png'),
+  X: require('../icons/x.png'),
 };

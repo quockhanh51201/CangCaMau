@@ -2,9 +2,9 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {ICONS} from '../assets/icons/icons';
 import {cloneElement} from 'react';
 
-const HeaderComponent3 = ({label, navigation}) => {
+const HeaderComponent3 = ({label, navigation, backgroundColor}) => {
   return (
-    <View style={{flexDirection: 'row', backgroundColor: '#459AC9'}}>
+    <View style={{flexDirection: 'row', backgroundColor: backgroundColor}}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <View
           style={{

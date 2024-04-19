@@ -68,7 +68,7 @@ const ProfileCBScreen = ({navigation}) => {
           Cá Nhân
         </Text>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('InforScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('InforCBScreen')}>
         <View
           style={{
             height: 87,
